@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 一个站点的简介</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f8f9fb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #0f1a2b;
+      line-height: 1.3;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-top: 2.6rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #dce2ec;
+      padding-bottom: 0.35rem;
+      color: #1e2a3a;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #1f3a57;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #2b3b4f;
+    }
+
+    /* 卡片 – 仅在用到时保持干净 */
+    .card-light {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.6rem 0 2.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 5px 20px rgba(0, 20, 40, 0.04);
+      border: 1px solid #e7ecf3;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: #3d516a;
+      margin-bottom: 1.6rem;
+      border-left: 3px solid #8299b8;
+      padding-left: 1.2rem;
+    }
+
+    /* 特性网格 */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+    .feature-item {
+      flex: 1 1 170px;
+      background: #f2f5fa;
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      border: 1px solid #e1e8f0;
+    }
+    .feature-item span {
+      display: block;
+      font-weight: 520;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #0a1b30;
+    }
+    .feature-item small {
+      font-size: 0.9rem;
+      color: #4d607a;
+      line-height: 1.5;
+    }
+
+    /* 引用 / 说明片段 */
+    .footnote {
+      background: #f0f3f8;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin: 2.2rem 0 1.2rem;
+      font-size: 0.95rem;
+      border-left: 4px solid #b3c3d9;
+      color: #2a405b;
+    }
+
+    /* 链接 */
+    a {
+      color: #1b4c7c;
+      text-decoration: none;
+      border-bottom: 1px solid #b6cbe2;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+      color: #0a2b4b;
+      border-bottom-color: #1b4c7c;
+    }
+
+    /* FAQ 简约折叠 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #153253;
+    }
+    .faq-a {
+      margin-left: 1rem;
+      color: #2f4663;
+      font-size: 0.95rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dae0ea;
+      margin: 2.6rem 0 1.8rem;
+    }
+
+    .footer-meta {
+      font-size: 0.85rem;
+      color: #6b7f99;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e9f2;
+      text-align: left;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .card-light {
+        padding: 1.2rem;
+      }
+      .features {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .feature-item {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 标题 & 摘要 -->
+  <h1>爱游戏 · 一处数字角落</h1>
+  <div class="tagline">
+    关于一个站点的介绍、它的由来，以及一些朴素的使用思路。
+  </div>
+
+  <p>
+    这个页面谈的是 <a href="https://web-portal-i-game.com.cn">爱游戏</a> —— 一个在互联网上存在的内容汇集点。它并不是某个大型平台，也不是一款产品，更接近一个围绕兴趣整理的信息入口。你或许会好奇它是否值得花时间浏览，下面这些文字试着提供一点轮廓。
+  </p>
+
+  <!-- 简明卡片：站点背景 -->
+  <div class="card-light">
+    <h3 style="margin-top:0; border-bottom: none; padding-bottom:0;">站点概览</h3>
+    <p style="margin-bottom:0.2rem;">
+      爱游戏是一个以「游戏兴趣」为线索的 web 门户，汇聚了一些经过筛选的外部链接、短文或工具索引。它没有广告弹窗，也不需要注册或下载。站点的维护者似乎更倾向于将它作为一个安静的“书签页”来运营，而不是一个热闹的社区。
+    </p>
+  </div>
+
+  <!-- 特点：三方面 -->
+  <h2>几个值得注意的特点</h2>
+  <div class="features">
+    <div class="feature-item">
+      <span>内容克制</span>
+      <small>页面数量不多，但每一条都带有简要说明。不会让人陷入信息过载。</small>
+    </div>
+    <div class="feature-item">
+      <span>独立风格</span>
+      <small>没有套用常见的建站模板，视觉上偏重文字与留白，加载很快。</small>
+    </div>
+    <div class="feature-item">
+      <span>可溯源性</span>
+      <small>大部分推荐或引用的内容都附有来源或简短评注，方便自己判断。</small>
+    </div>
+  </div>
+
+  <!-- 使用场景 / 建议 -->
+  <h2>什么时候可能用得上</h2>
+  <p>
+    如果你恰好对某个老游戏或独立作品产生兴趣，但又不想被算法推荐淹没，<a href="https://web-portal-i-game.com.cn">爱游戏</a> 或许能提供一个不同的切入角度。它适合在周末午后、或者想换换脑子时打开，随便点开一两个链接，看看别人记录的片段。它不是一个效率工具，也不承诺让你“成为高手”——它更像一面薄薄的橱窗，摆了一些和游戏相关的东西。
+  </p>
+  <p>
+    也可以把它当作一个“待读清单”：遇到感兴趣但暂时没时间细看的条目，可以先记住，等有空再回来。因为内容更新节奏不快，不会因为几天没看就堆积大量未读。
+  </p>
+
+  <!-- 可信但克制的说明 -->
+  <h2>关于可信度的一点说明</h2>
+  <p>
+    这个站点没有商业背景声明，也没有联盟链接或赞助标识。所有出现的外部链接均标注了原始地址。作为浏览者，你依然可以用自己的常识去判断每条信息的时效性和准确性——毕竟任何个人整理的列表都可能带有主观偏好。站内没有评论区和排行榜，因此也不会出现被操控的评分。
+  </p>
+  <div class="footnote">
+    <strong>一个小提醒：</strong> 如果某个链接指向的页面已经无法打开或内容变更，那可能只是外部资源本身的波动，并非站点故意为之。遇到这种情况，略过就好。
+  </div>
+
+  <!-- FAQ 摘要（非完整但自然） -->
+  <h2>常见疑问 · 摘要</h2>
+  <div class="faq-item">
+    <div class="faq-q">▪ 这个网站多久更新一次？</div>
+    <div class="faq-a">没有固定周期。有时一个月添加几条，有时几个月不变。维护者似乎按照自己的节奏来。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">▪ 需要付费或者注册吗？</div>
+    <div class="faq-a">完全免费，不需要任何账号或订阅。所有页面公开可访问。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">▪ 我能提交自己发现的游戏相关内容吗？</div>
+    <div class="faq-a">目前站点没有设置提交入口或联系方式。暂时只能单向浏览。</div>
+  </div>
+
+  <hr>
+
+  <!-- 末尾再次嵌入链接（自然） -->
+  <p style="font-size:0.95rem;">
+    如果你愿意亲自看看，可以打开 <a href="https://web-portal-i-game.com.cn">爱游戏</a> 随意逛逛。不需要做什么准备，也不需要记住任何地址。希望它能给你带来一两分钟安稳的阅读。
+  </p>
+
+  <div class="footer-meta">
+    <span>一份产品式简介 · 仅用于说明视角</span><br>
+    <span>内容方向：站点介绍与可信说明</span>
+  </div>
+
+</div>
+</body>
+</html>
