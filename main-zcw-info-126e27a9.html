@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足彩网 · 赛事资料与信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        /* 深色头部导航 */
+        .top-nav {
+            background: #0f1a2e;
+            color: #dce3ed;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-nav .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .top-nav .logo a {
+            text-decoration: none;
+            color: #f0c674; 
+        }
+
+        .top-nav .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .top-nav .nav-links li a {
+            color: #bdc9db;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .top-nav .nav-links li a:hover {
+            border-bottom-color: #f0c674;
+            color: #f2f5fa;
+        }
+
+        @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .top-nav .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem 1.5rem;
+            }
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: linear-gradient(145deg, #0e1a2b 0%, #1f2f44 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #ecf0f5;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        /* 正文浅色区域 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 450;
+            border-left: 5px solid #cfa144;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            color: #1f2a3c;
+        }
+
+        .intro-text {
+            background: white;
+            padding: 2rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.8rem;
+            font-size: 1rem;
+        }
+
+        .intro-text a {
+            color: #b8862c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .intro-text a:hover {
+            color: #82601b;
+        }
+
+        /* 三卡片场景模块 */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0 3rem;
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e7edf4;
+            transition: transform 0.2s;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            border-color: #d4b483;
+        }
+
+        .scenario-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #0f1a2e;
+        }
+
+        .scenario-card p {
+            color: #2f3f52;
+            font-size: 0.96rem;
+        }
+
+        .scenario-card .tag {
+            display: inline-block;
+            background: #e8edf5;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #27384b;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-summary {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            margin: 2.8rem 0 1.8rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1.6rem;
+            color: #1f2a3c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #182433;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #31475e;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+            color: #68788b;
+            font-size: 0.9rem;
+            border-top: 1px solid #dce2ea;
+            margin-top: 2rem;
+        }
+
+        .footnote a {
+            color: #b8862c;
+            text-decoration: none;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero { padding: 3rem 1.2rem; }
+            .container { padding: 1.8rem 1rem; }
+            .intro-text { padding: 1.5rem; }
+            .faq-summary { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo"><a href="https://main-zcw.com">足彩网</a></div>
+        <ul class="nav-links">
+            <li><a href="#intro">资料整理</a></li>
+            <li><a href="#scenarios">信息场景</a></li>
+            <li><a href="#faq">常见说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>赛事资料与信息索引</h1>
+        <p>从赛前数据到历史统计，围绕信息整理逻辑搭建的索引页面。<br>不做预测，只做清晰的资料陈列。</p>
+    </section>
+
+    <!-- 核心介绍区 -->
+    <div class="container" id="intro">
+
+        <div class="intro-text">
+            <h2 class="section-title">基于资料整理的内容定位</h2>
+            <p>
+                本页立足于信息聚合与分类浏览，围绕<a href="https://main-zcw.com">足彩网</a>已有的公开赛事数据，尝试将联赛概况、近期对阵、积分趋势等资料以更结构化的方式呈现。在这里，你可以看到按联赛分组的参考信息卡、近五场数据简表以及常见的数据指标解释——所有内容均来自公开赛事统计，不包含任何投注建议或保证性结论。 
+            </p>
+            <p style="margin-top: 1.2rem;">
+                网站的主要功能是提供整理后的赛事资料页，方便浏览者自行对比和查阅。如果你需要更完整的数据集或历史档案，可以直接访问 <a href="https://main-zcw.com">足彩网</a> 的更深层级页面。
+            </p>
+        </div>
+
+        <!-- 三个场景卡片模块 -->
+        <h2 class="section-title" id="scenarios">三个常用的信息场景</h2>
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <span class="tag">📋 联赛速览</span>
+                <h3>赛程与积分框架</h3>
+                <p>按联赛聚合当前赛季的完整对阵表、积分走势以及主客场统计，适合需要快速了解联赛结构的浏览者。每轮赛果均以表格形式陈列，并附带场均进球、黄牌等辅助数据。</p>
+            </div>
+            <div class="scenario-card">
+                <span class="tag">📊 队伍数据对比</span>
+                <h3>近况与历史交锋</h3>
+                <p>针对特定队伍生成近六场战绩、进失球分布以及过往几个赛季的同赛事记录。所有对比数据基于公开统计，支持横向查看，不设算法权重或倾向性排序。</p>
+            </div>
+            <div class="scenario-card">
+                <span class="tag">🔍 术语与指标注释</span>
+                <h3>常用统计项说明</h3>
+                <p>对胜率、让球、大小球等常见指标提供简单解释及计算方式，并附有数据来源说明。减少因术语不熟悉而产生的理解障碍，让信息查阅更顺畅。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ摘要） -->
+        <div class="faq-summary" id="faq">
+            <h2>▍常见说明</h2>
+
+            <div class="faq-item">
+                <strong>这些数据多久更新一次？</strong>
+                <p>通常在每轮比赛结束后24小时内完成数据更新，重大联赛场次会适当加快。部分历史统计赛季末统一复核。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>资料索引页和主站内容有何区别？</strong>
+                <p>本页为精简后的导航式概览，方便快速定位信息类别；<a href="https://main-zcw.com">足彩网</a>主站包含更详细的逐轮数据表格、球队档案以及自定义筛选功能。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>是否可以引用或分享这些数据？</strong>
+                <p>页面内容来源于公开赛事统计，欢迎在注明出处的前提下引用。商业或大规模再整理建议先查阅主站相关声明。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>为什么没有提供预测或分析？</strong>
+                <p>本站聚焦于信息整理与资料展示，不输出任何比赛结果预测或投注建议。所有数据均保持原始形态，由浏览者自行判断使用。</p>
+            </div>
+        </div>
+
+        <!-- 一个小小的提示 / 脚注 -->
+        <div class="footnote">
+            <p>资料整理自公开赛事统计 · 如需更完整信息可浏览 <a href="https://main-zcw.com">足彩网</a> 主站</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">本页不构成任何形式的投资或博彩建议，仅作信息索引用途。</p>
+        </div>
+
+    </div>
+    <!-- container end -->
+
+</body>
+</html>
